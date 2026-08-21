@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Produkter</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="main.js" defer></script>
   </head>
   <body class="page-products">
     <nav>
@@ -16,6 +17,7 @@
         <a class="margin-right-10" href="contact.html">Kontakt</a>
         <a class="margin-right-10" href="about.html">Om oss</a>
         <a class="margin-right-10" href="privacy.html">Integritetspolicy</a>
+        <button id="cart-menu-btn" class="cart-menu-btn">🛒 Varukorg (<span id="cart-count">0</span>)</button>
       </div>
     </nav>
 
@@ -34,6 +36,8 @@
               streamingappar.
             </p>
             <p>Pris: 999 kr</p>
+            <input type="number" class="quantity-input" min="1" value="1" aria-label="Antal TV" />
+            <button class="buy-btn" data-name="TV">Köp</button>
           </article>
           <article>
             <h3>Radio</h3>
@@ -44,6 +48,8 @@
               var du än är.
             </p>
             <p>Pris: 1 299 kr</p>
+            <input type="number" class="quantity-input" min="1" value="1" aria-label="Antal Radio" />
+            <button class="buy-btn" data-name="Radio">Köp</button>
           </article>
           <article>
             <h3>Playstation</h3>
@@ -54,6 +60,8 @@
               laddningstider.
             </p>
             <p>Pris: 1 499 kr</p>
+            <input type="number" class="quantity-input" min="1" value="1" aria-label="Antal Playstation" />
+            <button class="buy-btn" data-name="Playstation">Köp</button>
           </article>
           <article>
             <h3>Laptop</h3>
@@ -63,6 +71,8 @@
               underhållning.
             </p>
             <p>Pris: 1 999 kr</p>
+            <input type="number" class="quantity-input" min="1" value="1" aria-label="Antal Laptop" />
+            <button class="buy-btn" data-name="Laptop">Köp</button>
           </article>
           <article>
             <h3>Smartphone</h3>
@@ -72,8 +82,16 @@
               kamerakvalitet.
             </p>
             <p>Pris: 2 499 kr</p>
+            <input type="number" class="quantity-input" min="1" value="1" aria-label="Antal Smartphone" />
+            <button class="buy-btn" data-name="Smartphone">Köp</button>
           </article>
         </div>
+      </section>
+
+      <section id="cart-modal" class="cart-modal hidden">
+        <h2>Din Varukorg</h2>
+        <ul id="cart-items"></ul>
+        <button id="close-cart-btn" class="close-btn">Stäng</button>
       </section>
     </main>
 
