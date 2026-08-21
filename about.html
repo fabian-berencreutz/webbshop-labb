@@ -2,35 +2,39 @@
 <html lang="sv">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Om oss</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <nav>
       <a href="index.html">Webshop</a>
-      <div class="float-right">
+      <input type="checkbox" id="menu-toggle" class="menu-checkbox" />
+      <label for="menu-toggle" class="menu-button">&#9776;</label>
+      <div class="nav-links float-right">
         <a class="margin-right-10" href="products.html">Produkter</a>
         <a class="margin-right-10" href="contact.html">Kontakt</a>
         <a class="margin-right-10" href="about.html">Om oss</a>
         <a class="margin-right-10" href="privacy.html">Integritetspolicy</a>
       </div>
     </nav>
-    <hr />
 
     <main>
       <h1>Om oss</h1>
-      <section>
-        <h2>Vår historia</h2>
-        <p>
-          Information om oss, vi är en liten webbshop som säljer
-          elektronikprodukter.
-        </p>
-        <p>
-          En kort berättelse om vår historia är att vi började med att sälja
-          TV-apparater och utvecklade sedan vår verksamhet för att inkludera
-          fler elektronikprodukter.
-        </p>
-      </section>
+      <div class="about-card">
+        <section>
+          <h2>Vår historia</h2>
+          <p>
+            Information om oss, vi är en liten webbshop som säljer
+            elektronikprodukter.
+          </p>
+          <p>
+            En kort berättelse om vår historia är att vi började med att sälja
+            TV-apparater och utvecklade sedan vår verksamhet för att inkludera
+            fler elektronikprodukter.
+          </p>
+        </section>
+      </div>
 
       <section>
         <h2>Vår personal</h2>
@@ -41,7 +45,6 @@
       </section>
     </main>
 
-    <hr />
     <footer>
       <span>&copy; 2026 Fabians Webshop, All rights reserved.</span>
       <a href="privacy.html">Integritetspolicy</a>

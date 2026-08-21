@@ -2,75 +2,81 @@
 <html lang="sv">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Produkter</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body class="page-products">
     <nav>
       <a href="index.html">Webshop</a>
-      <div class="float-right">
+      <input type="checkbox" id="menu-toggle" class="menu-checkbox" />
+      <label for="menu-toggle" class="menu-button">&#9776;</label>
+      <div class="nav-links float-right">
         <a class="margin-right-10" href="products.html">Produkter</a>
         <a class="margin-right-10" href="contact.html">Kontakt</a>
         <a class="margin-right-10" href="about.html">Om oss</a>
         <a class="margin-right-10" href="privacy.html">Integritetspolicy</a>
       </div>
     </nav>
-    <hr />
 
     <main>
       <h1>Produkter</h1>
       <section>
         <h2>Våra produkter</h2>
         <p>Här är våra produkter!</p>
-        <article>
-          <h3>TV</h3>
-          <img src="tv.jpg" alt="Platt-tv på en vit bänk" />
-          <p>
-            En modern Smart-TV med knivskarp bildkvalitet och inbyggda
-            streamingappar.
-          </p>
-          <p>Pris: 999 kr</p>
-        </article>
-        <article>
-          <h3>Radio</h3>
-          <img src="radio.jpg" alt="Brun radio" />
-          <p>
-            En smidig bärbar radio med både FM och DAB+ för kristallklart ljud
-            var du än är.
-          </p>
-          <p>Pris: 1 299 kr</p>
-        </article>
-        <article>
-          <h3>Playstation</h3>
-          <img src="playstation.jpg" alt="Vitt playstation med kontroller" />
-          <p>
-            En kraftfull spelkonsol som levererar fantastisk grafik och snabba
-            laddningstider.
-          </p>
-          <p>Pris: 1 499 kr</p>
-        </article>
-        <article>
-          <h3>Laptop</h3>
-          <img src="laptop.jpg" alt="Silver laptop med mus" />
-          <p>
-            En snabb och mångsidig bärbar dator perfekt för både arbete och
-            underhållning.
-          </p>
-          <p>Pris: 1 999 kr</p>
-        </article>
-        <article>
-          <h3>Smartphone</h3>
-          <img src="smartphone.jpg" alt="Svart smartphone på ett vitt bord" />
-          <p>
-            En stilren smarttelefon med högupplöst skärm och utmärkt
-            kamerakvalitet.
-          </p>
-          <p>Pris: 2 499 kr</p>
-        </article>
+        <div class="product-container">
+          <article>
+            <h3>TV</h3>
+            <img src="tv.jpg" alt="Platt-tv på en vit bänk" />
+            <span class="badge badge-new">Nyhet!</span>
+            <p>
+              En modern Smart-TV med knivskarp bildkvalitet och inbyggda
+              streamingappar.
+            </p>
+            <p>Pris: 999 kr</p>
+          </article>
+          <article>
+            <h3>Radio</h3>
+            <img src="radio.jpg" alt="Brun radio" />
+            <span class="badge badge-sale">REA</span>
+            <p>
+              En smidig bärbar radio med både FM och DAB+ för kristallklart ljud
+              var du än är.
+            </p>
+            <p>Pris: 1 299 kr</p>
+          </article>
+          <article>
+            <h3>Playstation</h3>
+            <img src="playstation.jpg" alt="Vitt playstation med kontroller" />
+            <span class="badge badge-popular">Populär!</span>
+            <p>
+              En kraftfull spelkonsol som levererar fantastisk grafik och snabba
+              laddningstider.
+            </p>
+            <p>Pris: 1 499 kr</p>
+          </article>
+          <article>
+            <h3>Laptop</h3>
+            <img src="laptop.jpg" alt="Silver laptop med mus" />
+            <p>
+              En snabb och mångsidig bärbar dator perfekt för både arbete och
+              underhållning.
+            </p>
+            <p>Pris: 1 999 kr</p>
+          </article>
+          <article>
+            <h3>Smartphone</h3>
+            <img src="smartphone.jpg" alt="Svart smartphone på ett vitt bord" />
+            <p>
+              En stilren smarttelefon med högupplöst skärm och utmärkt
+              kamerakvalitet.
+            </p>
+            <p>Pris: 2 499 kr</p>
+          </article>
+        </div>
       </section>
     </main>
 
-    <hr />
     <footer>
       <span>&copy; 2026 Fabians Webshop, All rights reserved.</span>
       <a href="privacy.html">Integritetspolicy</a>

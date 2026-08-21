@@ -2,48 +2,71 @@
 <html lang="sv">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kontakt</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <nav>
       <a href="index.html">Webshop</a>
-      <div class="float-right">
+      <input type="checkbox" id="menu-toggle" class="menu-checkbox" />
+      <label for="menu-toggle" class="menu-button">&#9776;</label>
+      <div class="nav-links float-right">
         <a class="margin-right-10" href="products.html">Produkter</a>
         <a class="margin-right-10" href="contact.html">Kontakt</a>
         <a class="margin-right-10" href="about.html">Om oss</a>
         <a class="margin-right-10" href="privacy.html">Integritetspolicy</a>
       </div>
     </nav>
-    <hr />
 
     <main>
       <h1>Kontakt</h1>
-      <section>
-        <h2>Kontaktuppgifter</h2>
-        <p>Fabian Efternamn</p>
-        <p>mail@fabian.se</p>
-      </section>
+      <div class="contact-card">
+        <section>
+          <h2>Kontaktuppgifter</h2>
+          <p>Fabian Efternamn</p>
+          <p>mail@fabian.se</p>
+        </section>
+      </div>
 
       <section>
         <h2>Skicka ett meddelande</h2>
         <form autocomplete="on">
           <label for="namn">Ditt namn:</label><br />
-          <input type="text" id="namn" name="namn" autocomplete="name" required /><br /><br />
+          <input
+            type="text"
+            id="namn"
+            name="namn"
+            autocomplete="name"
+            required
+          /><br /><br />
 
           <label for="epost">E-postadress:</label><br />
-          <input type="email" id="epost" name="epost" autocomplete="email" required /><br /><br />
+          <input
+            type="email"
+            id="epost"
+            name="epost"
+            autocomplete="email"
+            required
+          /><br /><br />
 
           <label for="amne">Välj ämne:</label><br />
           <select id="amne" name="amne" required>
             <option value="">-- Välj ett ämne --</option>
             <option value="fraga">Fråga om produkt</option>
             <option value="reklamation">Reklamation</option>
-            <option value="ovrigt">Övrigt</option>
-          </select><br /><br />
+            <option value="ovrigt">Övrigt</option></select
+          ><br /><br />
 
           <label for="meddelande">Meddelande:</label><br />
-          <textarea id="meddelande" name="meddelande" rows="4" cols="30" required></textarea><br /><br />
+          <textarea
+            id="meddelande"
+            name="meddelande"
+            rows="4"
+            cols="30"
+            required
+          ></textarea
+          ><br /><br />
 
           <button type="submit">Skicka</button>
         </form>
@@ -52,15 +75,16 @@
       <section>
         <h2>Hantering av personuppgifter</h2>
         <p>
-          De personuppgifter du lämnar i formuläret används för att vi ska kunna besvara ditt meddelande och hantera ditt ärende.
+          De personuppgifter du lämnar i formuläret används för att vi ska kunna
+          besvara ditt meddelande och hantera ditt ärende.
         </p>
         <p>
-          Du kan läsa mer om hur vi behandlar dina personuppgifter i vår <a href="privacy.html">integritetspolicy</a>.
+          Du kan läsa mer om hur vi behandlar dina personuppgifter i vår
+          <a href="privacy.html">integritetspolicy</a>.
         </p>
       </section>
     </main>
 
-    <hr />
     <footer>
       <span>&copy; 2026 Fabians Webshop, All rights reserved.</span>
       <a href="privacy.html">Integritetspolicy</a>
