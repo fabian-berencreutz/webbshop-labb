@@ -274,4 +274,12 @@ h1 {
   display: none !important;
 }
 
-
+.cart-modal {
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  background-color: white;
+  border: 1px solid black;
+  padding: 15px;
+  z-index: 1000;
+}
