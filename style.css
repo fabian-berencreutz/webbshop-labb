@@ -108,7 +108,10 @@ footer p {
 }
 
 nav {
-  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
   background-color: #ffffff;
   padding: 10px 20px;
   border-bottom: 1px solid #ccc;
