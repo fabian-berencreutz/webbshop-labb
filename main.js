@@ -1,4 +1,18 @@
-const cart = {};
+let products = [];
+
+let cart = [];
+
+function addToCart(product) {
+  const existingProduct = cart.find((item) => item.product.id === product.id);
+  if (existingProduct) {
+    existingProduct.quantity += 1;
+  } else {
+    cart.push({ product: product, quantity: 1 });
+  }
+
+  console.log("Varukorg:", cart);
+  updateCartUI();
+}
 
 const cartMenuBtn = document.getElementById("cart-menu-btn");
 const cartModal = document.getElementById("cart-modal");
@@ -7,61 +21,88 @@ const cartItemsContainer = document.getElementById("cart-items");
 const cartCountSpan = document.getElementById("cart-count");
 
 if (cartMenuBtn && cartModal) {
-  cartMenuBtn.addEventListener("click", () =>
-    cartModal.classList.remove("hidden"),
-  );
+  cartMenuBtn.addEventListener("click", () => {
+    cartModal.classList.remove("hidden");
+  });
 }
 
 if (closeCartBtn && cartModal) {
-  closeCartBtn.addEventListener("click", () =>
-    cartModal.classList.add("hidden"),
-  );
+  closeCartBtn.addEventListener("click", () => {
+    cartModal.classList.add("hidden");
+  });
+}
+
+function updateCartUI() {
+  if (!cartItemsContainer || !cartCountSpan) return;
+
+  cartItemsContainer.innerHTML = "";
+
+  let totalCount = 0;
+
+  cart.forEach((item) => {
+    totalCount += item.quantity;
+    const itemTotal = item.product.price * item.quantity;
+
+    const li = createElement(
+      "li",
+      `${item.product.name} x ${item.quantity} (${itemTotal} kr)`,
+    );
+    cartItemsContainer.appendChild(li);
+  });
+
+  cartCountSpan.textContent = totalCount;
 }
 
 const productList = document.getElementById("productList");
 
-const el = (tag, props = {}) =>
-  Object.assign(document.createElement(tag), props);
+function createElement(tag, text, className) {
+  const el = document.createElement(tag);
+  if (text) el.textContent = text;
+  if (className) el.className = className;
+  return el;
+}
 
 const getProducts = async () => {
   try {
     const response = await fetch("./products.json");
-    if (!response.ok) throw new Error("HTTP-fel: " + response.status);
-    const products = await response.json();
+    if (!response.ok) {
+      throw new Error("HTTP-fel: " + response.status);
+    }
+    products = await response.json();
     renderProducts(products);
   } catch (error) {
     console.error("Kunde inte hämta produkter:", error);
   }
 };
 
-const renderProducts = (products) => {
+const renderProducts = (productsToRender) => {
   if (!productList) return;
   productList.innerHTML = "";
 
-  products.forEach((product) => {
-    const article = el("article");
-    const title = el("h3", { textContent: product.name });
-    const image = el("img", { src: product.image, alt: product.imageAlt });
-    const description = el("p", { textContent: product.description });
-    const price = el("p", { textContent: `Pris: ${product.price} kr` });
+  productsToRender.forEach((product) => {
+    const article = createElement("article", null, "product");
+    const title = createElement("h3", product.name);
+    const description = createElement("p", product.description);
+    const price = createElement("p", `Pris: ${product.price} kr`);
+    const image = createElement("img");
+    image.src = product.image;
+    image.alt = product.imageAlt;
 
-    const buyBtn = el("button", { className: "buy-btn", textContent: "Köp" });
+    const buyBtn = createElement("button", "Köp", "buy-btn");
     buyBtn.addEventListener("click", () => {
-      console.log(`Lägg i varukorg: ${product.name}`);
-      alert(`Vara lagd i varukorg: ${product.name}`);
+      addToCart(product);
     });
 
     article.append(title, image, description, price, buyBtn);
 
     if (product.badge) {
-      const badge = el("span", {
-        className: "badge",
-        textContent: product.badge,
-      });
-      if (product.badge.includes("Nyhet")) badge.classList.add("badge-new");
-      else if (product.badge.includes("REA")) badge.classList.add("badge-sale");
+      let badgeClass = "badge";
+      if (product.badge.includes("Nyhet")) badgeClass += " badge-new";
+      else if (product.badge.includes("REA")) badgeClass += " badge-sale";
       else if (product.badge.includes("Populär"))
-        badge.classList.add("badge-popular");
+        badgeClass += " badge-popular";
+
+      const badge = createElement("span", product.badge, badgeClass);
       article.appendChild(badge);
     }
 

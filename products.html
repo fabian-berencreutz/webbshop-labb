@@ -13,13 +13,13 @@
       <input type="checkbox" id="menu-toggle" class="menu-checkbox" />
       <label for="menu-toggle" class="menu-button">&#9776;</label>
       <div class="nav-links float-right">
+        <button id="cart-menu-btn" class="cart-menu-btn">
+          Varukorg (<span id="cart-count">0</span>)
+        </button>
         <a class="margin-right-10" href="products.html">Produkter</a>
         <a class="margin-right-10" href="contact.html">Kontakt</a>
         <a class="margin-right-10" href="about.html">Om oss</a>
         <a class="margin-right-10" href="privacy.html">Integritetspolicy</a>
-        <button id="cart-menu-btn" class="cart-menu-btn">
-          🛒 Varukorg (<span id="cart-count">0</span>)
-        </button>
       </div>
     </nav>
 
@@ -30,7 +30,6 @@
         <p>Här är våra produkter!</p>
         <div id="productList" class="product-container"></div>
       </section>
-
       <section id="cart-modal" class="cart-modal hidden">
         <h2>Din Varukorg</h2>
         <ul id="cart-items"></ul>
