@@ -17,7 +17,9 @@
         <a class="margin-right-10" href="contact.html">Kontakt</a>
         <a class="margin-right-10" href="about.html">Om oss</a>
         <a class="margin-right-10" href="privacy.html">Integritetspolicy</a>
-        <button id="cart-menu-btn" class="cart-menu-btn">🛒 Varukorg (<span id="cart-count">0</span>)</button>
+        <button id="cart-menu-btn" class="cart-menu-btn">
+          🛒 Varukorg (<span id="cart-count">0</span>)
+        </button>
       </div>
     </nav>
 
@@ -26,66 +28,7 @@
       <section>
         <h2>Våra produkter</h2>
         <p>Här är våra produkter!</p>
-        <div class="product-container">
-          <article>
-            <h3>TV</h3>
-            <img src="tv.jpg" alt="Platt-tv på en vit bänk" />
-            <span class="badge badge-new">Nyhet!</span>
-            <p>
-              En modern Smart-TV med knivskarp bildkvalitet och inbyggda
-              streamingappar.
-            </p>
-            <p>Pris: 999 kr</p>
-            <input type="number" class="quantity-input" min="1" value="1" aria-label="Antal TV" />
-            <button class="buy-btn" data-name="TV">Köp</button>
-          </article>
-          <article>
-            <h3>Radio</h3>
-            <img src="radio.jpg" alt="Brun radio" />
-            <span class="badge badge-sale">REA</span>
-            <p>
-              En smidig bärbar radio med både FM och DAB+ för kristallklart ljud
-              var du än är.
-            </p>
-            <p>Pris: 1 299 kr</p>
-            <input type="number" class="quantity-input" min="1" value="1" aria-label="Antal Radio" />
-            <button class="buy-btn" data-name="Radio">Köp</button>
-          </article>
-          <article>
-            <h3>Playstation</h3>
-            <img src="playstation.jpg" alt="Vitt playstation med kontroller" />
-            <span class="badge badge-popular">Populär!</span>
-            <p>
-              En kraftfull spelkonsol som levererar fantastisk grafik och snabba
-              laddningstider.
-            </p>
-            <p>Pris: 1 499 kr</p>
-            <input type="number" class="quantity-input" min="1" value="1" aria-label="Antal Playstation" />
-            <button class="buy-btn" data-name="Playstation">Köp</button>
-          </article>
-          <article>
-            <h3>Laptop</h3>
-            <img src="laptop.jpg" alt="Silver laptop med mus" />
-            <p>
-              En snabb och mångsidig bärbar dator perfekt för både arbete och
-              underhållning.
-            </p>
-            <p>Pris: 1 999 kr</p>
-            <input type="number" class="quantity-input" min="1" value="1" aria-label="Antal Laptop" />
-            <button class="buy-btn" data-name="Laptop">Köp</button>
-          </article>
-          <article>
-            <h3>Smartphone</h3>
-            <img src="smartphone.jpg" alt="Svart smartphone på ett vitt bord" />
-            <p>
-              En stilren smarttelefon med högupplöst skärm och utmärkt
-              kamerakvalitet.
-            </p>
-            <p>Pris: 2 499 kr</p>
-            <input type="number" class="quantity-input" min="1" value="1" aria-label="Antal Smartphone" />
-            <button class="buy-btn" data-name="Smartphone">Köp</button>
-          </article>
-        </div>
+        <div id="productList" class="product-container"></div>
       </section>
 
       <section id="cart-modal" class="cart-modal hidden">

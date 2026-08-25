@@ -1,0 +1,45 @@
+[
+  {
+    "id": 1,
+    "name": "TV",
+    "description": "En modern Smart-TV med knivskarp bildkvalitet och inbyggda streamingappar.",
+    "price": 999,
+    "image": "tv.jpg",
+    "imageAlt": "Platt-tv på en vit bänk",
+    "badge": "Nyhet!"
+  },
+  {
+    "id": 2,
+    "name": "Radio",
+    "description": "En smidig bärbar radio med både FM och DAB+ för kristallklart ljud var du än är.",
+    "price": 1299,
+    "image": "radio.jpg",
+    "imageAlt": "Brun radio",
+    "badge": "REA"
+  },
+  {
+    "id": 3,
+    "name": "Playstation",
+    "description": "En kraftfull spelkonsol som levererar fantastisk grafik och snabba laddningstider.",
+    "price": 1499,
+    "image": "playstation.jpg",
+    "imageAlt": "Vitt playstation med kontroller",
+    "badge": "Populär!"
+  },
+  {
+    "id": 4,
+    "name": "Laptop",
+    "description": "En snabb och mångsidig bärbar dator perfekt för både arbete och underhållning.",
+    "price": 1999,
+    "image": "laptop.jpg",
+    "imageAlt": "Silver laptop med mus"
+  },
+  {
+    "id": 5,
+    "name": "Smartphone",
+    "description": "En stilren smarttelefon med högupplöst skärm och utmärkt kamerakvalitet.",
+    "price": 2499,
+    "image": "smartphone.jpg",
+    "imageAlt": "Svart smartphone på ett vitt bord"
+  }
+]

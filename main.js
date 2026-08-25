@@ -1,51 +1,74 @@
 const cart = {};
 
-const cartMenuBtn = document.getElementById('cart-menu-btn');
-const cartModal = document.getElementById('cart-modal');
-const closeCartBtn = document.getElementById('close-cart-btn');
-const cartItemsContainer = document.getElementById('cart-items');
-const cartCountSpan = document.getElementById('cart-count');
+const cartMenuBtn = document.getElementById("cart-menu-btn");
+const cartModal = document.getElementById("cart-modal");
+const closeCartBtn = document.getElementById("close-cart-btn");
+const cartItemsContainer = document.getElementById("cart-items");
+const cartCountSpan = document.getElementById("cart-count");
 
 if (cartMenuBtn && cartModal) {
-  cartMenuBtn.addEventListener('click', () => {
-    cartModal.classList.remove('hidden');
-  });
+  cartMenuBtn.addEventListener("click", () =>
+    cartModal.classList.remove("hidden"),
+  );
 }
 
 if (closeCartBtn && cartModal) {
-  closeCartBtn.addEventListener('click', () => {
-    cartModal.classList.add('hidden');
-  });
+  closeCartBtn.addEventListener("click", () =>
+    cartModal.classList.add("hidden"),
+  );
 }
 
-function updateCartUI() {
-  if (!cartItemsContainer || !cartCountSpan) return;
+const productList = document.getElementById("productList");
 
-  cartItemsContainer.innerHTML = '';
-  let totalCount = 0;
+const el = (tag, props = {}) =>
+  Object.assign(document.createElement(tag), props);
 
-  for (const [name, qty] of Object.entries(cart)) {
-    totalCount += qty;
-    const li = document.createElement('li');
-    li.textContent = `${name}: ${qty} st`;
-    cartItemsContainer.appendChild(li);
+const getProducts = async () => {
+  try {
+    const response = await fetch("./products.json");
+    if (!response.ok) throw new Error("HTTP-fel: " + response.status);
+    const products = await response.json();
+    renderProducts(products);
+  } catch (error) {
+    console.error("Kunde inte hämta produkter:", error);
   }
+};
 
-  cartCountSpan.textContent = totalCount;
-}
+const renderProducts = (products) => {
+  if (!productList) return;
+  productList.innerHTML = "";
 
-const buyButtons = document.querySelectorAll('.buy-btn');
+  products.forEach((product) => {
+    const article = el("article");
+    const title = el("h3", { textContent: product.name });
+    const image = el("img", { src: product.image, alt: product.imageAlt });
+    const description = el("p", { textContent: product.description });
+    const price = el("p", { textContent: `Pris: ${product.price} kr` });
 
-buyButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    const productName = button.dataset.name;
-    const article = button.closest('article');
-    const quantityInput = article ? article.querySelector('.quantity-input') : null;
-    const quantity = quantityInput ? parseInt(quantityInput.value, 10) || 1 : 1;
+    const buyBtn = el("button", { className: "buy-btn", textContent: "Köp" });
+    buyBtn.addEventListener("click", () => {
+      console.log(`Lägg i varukorg: ${product.name}`);
+      alert(`Vara lagd i varukorg: ${product.name}`);
+    });
 
-    cart[productName] = (cart[productName] || 0) + quantity;
-    updateCartUI();
+    article.append(title, image, description, price, buyBtn);
 
-    alert(`Vara lagd i varukorg: ${productName} (${quantity} st)`);
+    if (product.badge) {
+      const badge = el("span", {
+        className: "badge",
+        textContent: product.badge,
+      });
+      if (product.badge.includes("Nyhet")) badge.classList.add("badge-new");
+      else if (product.badge.includes("REA")) badge.classList.add("badge-sale");
+      else if (product.badge.includes("Populär"))
+        badge.classList.add("badge-popular");
+      article.appendChild(badge);
+    }
+
+    productList.appendChild(article);
   });
-});
+};
+
+if (productList) {
+  getProducts();
+}
