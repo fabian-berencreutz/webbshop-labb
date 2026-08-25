@@ -1,16 +1,21 @@
 let products = [];
-
 let cart = [];
+
+function createElement(tag, text, className) {
+  const el = document.createElement(tag);
+  if (text) el.textContent = text;
+  if (className) el.className = className;
+  return el;
+}
 
 function addToCart(product) {
   const existingProduct = cart.find((item) => item.product.id === product.id);
   if (existingProduct) {
     existingProduct.quantity += 1;
   } else {
-    cart.push({ product: product, quantity: 1 });
+    cart.push({ product, quantity: 1 });
   }
 
-  console.log("Varukorg:", cart);
   updateCartUI();
 }
 
@@ -36,7 +41,6 @@ function updateCartUI() {
   if (!cartItemsContainer || !cartCountSpan) return;
 
   cartItemsContainer.innerHTML = "";
-
   let totalCount = 0;
 
   cart.forEach((item) => {
@@ -54,13 +58,6 @@ function updateCartUI() {
 }
 
 const productList = document.getElementById("productList");
-
-function createElement(tag, text, className) {
-  const el = document.createElement(tag);
-  if (text) el.textContent = text;
-  if (className) el.className = className;
-  return el;
-}
 
 const getProducts = async () => {
   try {
