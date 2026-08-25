@@ -114,15 +114,12 @@ nav {
   border-bottom: 1px solid #ccc;
   position: sticky;
   top: 0;
+  z-index: 1000;
 }
 
 nav > a {
   font-weight: bold;
   font-size: 1.2rem;
-}
-
-.menu-checkbox {
-  display: none;
 }
 
 .menu-button {
@@ -150,9 +147,13 @@ nav > a {
     width: 100%;
     flex-direction: column;
     margin-top: 10px;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
-  .menu-checkbox:checked ~ .nav-links {
+  .nav-links.active {
     display: flex;
   }
 }
